@@ -15,7 +15,7 @@ Além de um CRUD básico, a API tem alguns recursos interessantes:
 
 * `GET /` - Retorna um status 200 para sinalizar o funcionando do app
 * `GET /articles:page` - Retorna todos os artigos respeitando a paginação (pode ser definida dentro de `src/config/constants.js`) 
-* `GET /articles/{id}` - Retorna um artigo específico pelo
+* `GET /articles/{id}` - Retorna um artigo específico pelo id
 * `POST /articles/` - Cria um artigo
 * `PUT /articles/{id}` - Altera um artigo 
 * `DELETE /articles/{id}` - Deleta um artigo
@@ -41,7 +41,7 @@ Mais detalhes de como usar a API estão disponíveis no tópico "Documentação"
 2. Execute `docker-compose build` dentro do diretório do projeto
 3. Em seguida, execute `docker-compose up`dentro do mesmo diretório
 4. Pronto, o projeto estará rodando e acessível em `localhost:3000`
-5. Opcional: acesse o endpoint `GET /seed` para alimentar a base de dados
+5. Opcional: através do comando `docker-compose run web bash`, acesse o container da aplicação e logo em seguida execute `yarn seed` para alimentar a base de dados com os dados da API externa
 
 ## 📖 Documentação:
 * Execute todas as etapas acima
