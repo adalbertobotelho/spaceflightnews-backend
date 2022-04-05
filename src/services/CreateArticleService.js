@@ -6,7 +6,9 @@ const createArticleService = async (article) => {
         publishedAt: new Date().toISOString()
     }
 
-    const createdArticle = await Articles.create({ data: newArticle });
+    const createdArticle = await Articles.create({
+        data: newArticle,
+    });
 
     return createdArticle;
 }

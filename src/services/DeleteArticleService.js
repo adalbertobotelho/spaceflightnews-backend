@@ -12,16 +12,16 @@ const deleteArticleService = async (id) => {
     });
 
     if (!article) {
-        return;
+        return false;
     }
 
-    const deletedArticle = await Articles.delete({
+    await Articles.delete({
         where: {
             id: Number(id)
         }
     });
 
-    return deletedArticle;
+    return true;
 }
 
 module.exports = deleteArticleService;

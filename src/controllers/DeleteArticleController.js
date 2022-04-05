@@ -5,11 +5,13 @@ const deleteArticleController = async (request, response) => {
 
     const deletedArticle = await deleteArticleService(id)
 
+    console.log(deletedArticle)
+
     if (!deletedArticle) {
         return response.status(404).send();
     }
 
-    return response.status(200).json(deletedArticle);
+    return response.status(200).send();
 }
 
 module.exports = deleteArticleController;

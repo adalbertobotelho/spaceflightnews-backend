@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const seedData = require('../utils/SeedData.js');
 
 const createArticleController = require('../controllers/CreateArticleController.js');
 const getArticlesWithPaginationController = require('../controllers/GetArticlesWithPaginationController.js');

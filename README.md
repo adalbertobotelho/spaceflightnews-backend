@@ -35,9 +35,10 @@ Mais detalhes de como usar a API estão disponíveis no tópico "Documentação"
 *Importante: é necessário ter o Docker instalado*
 
 1. Clone o repositório para a sua máquina
-2. Execute `docker-compose up` dentro do diretório do projeto
-3. Pronto, o projeto estará rodando e acessível em `localhost:3000`
-4. Opcional: acesse o endpoint `GET /seed` para alimentar a base de dados
+2. Execute `docker-compose build` dentro do diretório do projeto
+3. Em seguida, execute `docker-compose up`dentro do mesmo diretório
+4. Pronto, o projeto estará rodando e acessível em `localhost:3000`
+5. Opcional: acesse o endpoint `GET /seed` para alimentar a base de dados
 
 ## 📖 Documentação:
 * Execute todas as etapas acima
