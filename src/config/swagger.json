@@ -1,0 +1,212 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Space Flight News - API",
+        "description": "API de teste para o desafio da Coodesh",
+        "contact": {
+            "email": "adalbertobotelho@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/articles",
+    "paths": {
+        "/articles": {
+            "get": {
+                "tags": [
+                  "Articles"
+                ],
+                "summary": "Exibir artigos baseado na paginação",
+                "description": "Retorna um array com os artigos na página desejada",
+                "operationId": "getArticlesWithPagination",
+                "produces": [
+                  "application/json"
+                ],
+                "parameters": [
+                  {
+                    "name": "page",
+                    "in": "query",
+                    "description": "Página desejada",
+                    "required": false,
+                    "type": "integer",
+                    "format": "int64",
+                    "default": 1
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "Página encontrada",
+                    "schema": {
+                      "type": "array"
+                    }
+                  }
+                }
+            },
+            "post": {
+                "summary": "Cadastro de um novo artigo",
+                "description": "Rota responsável por cadastrar novos artigos",
+                "operationId": "createArticle",
+                "tags": ["Articles"],
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Artigo a ser criado",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/components/schemas/Article"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Artigo criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Article"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/articles/{id}": {
+            "get": {
+                "tags": [
+                  "Articles"
+                ],
+                "summary": "Encontrar um artigo pelo ID",
+                "description": "Retorna um artigo",
+                "operationId": "getArticleById",
+                "produces": [
+                  "application/json"
+                ],
+                "parameters": [
+                  {
+                    "name": "id",
+                    "in": "path",
+                    "description": "ID of article to return",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "Artigo encontrado",
+                    "schema": {
+                      "$ref": "#/components/schemas/Article"
+                    }
+                  }
+                }
+            },
+            "delete": {
+                "summary": "Excluir artigo pelo id",
+                "description": "Deleta um artigo informando seu ID",
+                "operationId": "deleteArticle",
+                "tags": ["Articles"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do artigo",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Artigo deletado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Article"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualizar informações do artigo pelo ID",
+                "description": "Atualiza as informações de um artigo através do seu ID, e de um objeto contendo as novas informações",
+                "operationId": "updateArticle",
+                "tags": ["Articles"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do artigo",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Corpo da requisição",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Article"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Artigo listado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Article"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Article": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "default": "99999"
+                    },
+                    "featured": {
+                        "type": "boolean"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "imageUrl": { 
+                        "type": "string"
+                    },
+                    "newsSite": {
+                        "type": "string"
+                    },
+                    "summary": {
+                        "type": "string"
+                    },
+                    "publishedAt": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }        
+}
