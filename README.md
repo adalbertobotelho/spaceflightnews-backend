@@ -8,6 +8,9 @@ Além de um CRUD básico, a API tem alguns recursos interessantes:
 * Após o servidor ser iniciado, todos os dias às 9h é executado automaticamente um *cronjob* que roda a função acima. Ou seja: a base de dados se atualiza automaticamente todos os dias
 * Os testes utilizam um environment próprio a cada rodada, criando uma tabela específica para testes, coletando os resultados, e excluindo-a logo em seguida
 
+## Link do projeto no Heroku
+É possível acessar o projeto através [deste link](https://spaceflightnews-backend.herokuapp.com/). A porta padrão para os testes da API é a 443
+
 ## O projeto possui os seguintes endpoints:
 
 * `GET /` - Retorna um status 200 para sinalizar o funcionando do app
